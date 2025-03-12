@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     justify-content: center;
 }
 
@@ -20,13 +20,15 @@ body {
 .container {
     margin: 0;
     height: 100%;
-    
+
 }
+
 @media screen and (max-width: 768px) {
     .container {
         margin: 0 2rem;
     }
 }
+
 a {
     text-decoration: none;
 }
@@ -88,7 +90,7 @@ nav .logo {
 #login .content {
     display: flex;
     flex-wrap: wrap;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     height: 100%;
     /* background-image: url(images/Group.png); */
@@ -106,19 +108,20 @@ nav .logo {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* width: 100%; */
     max-width: 540px;
-    justify-content:center;
+    justify-content: center;
     overflow: hidden;
-    box-shadow:#374151;
+    box-shadow: #374151;
 }
 
 
 
-#login .content form div{
+#login .content form div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
+
 #login .content form img {
     width: 100px;
     padding: 15px;
@@ -134,7 +137,7 @@ nav .logo {
     font-size: 34px;
     line-height: 41.15px;
     font-weight: 700;
-    font-family: "Iter" , Helvetica;
+    font-family: "Iter", Helvetica;
 }
 
 /* #login .container .content form p {
@@ -162,18 +165,20 @@ nav .logo {
     font-weight: 500;
     margin: 0.2em 0;
     color: #11477B;
-    font-family: "Iter" , Helvetica;
+    font-family: "Iter", Helvetica;
 }
 
-#login .content form input[type="text"], input[type="email"], input[type="password"] {
+#login .content form input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
     border: 1px #cbd5e1;
     border-radius: 15px;
-    border-style:solid;
+    border-style: solid;
     border-width: medium;
     margin-bottom: 1.5rem;
-    font-family: "Iter" , Helvetica;
+    font-family: "Iter", Helvetica;
 }
 
 form .inp:focus {
@@ -186,7 +191,7 @@ form .inp:focus {
     color: #ffff;
     font-weight: 700;
     font-size: 16px;
-    font-family: "Iter" , Helvetica;
+    font-family: "Iter", Helvetica;
     padding: 10px;
     border: none;
     border-radius: 15px;
@@ -201,7 +206,7 @@ form .inp:focus {
 
 #login .content form button:hover {
     background-color: #3498db;
-   
+
 }
 
 .anim {
@@ -224,7 +229,7 @@ form .inp:focus {
     letter-spacing: 0;
     line-height: 20px;
     font-weight: 700;
-    font-family: "Iter" , Helvetica;
+    font-family: "Iter", Helvetica;
     width: 116px;
     margin-top: 10px;
     margin-left: 220px;
@@ -297,7 +302,7 @@ form .inp:focus {
     }
 
     /* Show menu when checkbox is checked */
-    #menu-toggle:checked + .menu-icon + .nav-list {
+    #menu-toggle:checked+.menu-icon+.nav-list {
         display: flex;
     }
 }
@@ -319,24 +324,29 @@ form .inp:focus {
 /* #login .content form button:hover {
     background: #0f3e68;
     transform: scale(1.05); /* تكبير الزر عند التحويم */
-    /* transition: all 0.3s ease; */
-/* } */ */
-
-.inp:focus {
+/* transition: all 0.3s ease; */
+/* } */
+*/ .inp:focus {
     border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* إضافة ظل عند التركيز */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    /* إضافة ظل عند التركيز */
     transition: all 0.3s ease;
 }
 
 #login .content form div img {
-    animation: float 3s ease-in-out infinite; /* حركة طفو */
+    animation: float 3s ease-in-out infinite;
+    /* حركة طفو */
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
 }
+
