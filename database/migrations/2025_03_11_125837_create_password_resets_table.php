@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-    Schema::create('password_resets', function (Blueprint $table) {
-        $table->string('email')->index();
-        $table->string('token');
-        $table->timestamp('created_at')->nullable();
-});
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+            $table->string('verification_code')->nullable();
+            $table->timestamp('expires_at')->nullable();
+        });
     }
 
     /**

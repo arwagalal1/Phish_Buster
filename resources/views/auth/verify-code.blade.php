@@ -5,14 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verify Code</title>
 
-    <!-- style -->
-
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-    crossorigin="anonymous"> -->
-
-    <link rel="stylesheet" href="{{asset('css\auth\verify-code.css')}}" />
+    <link rel="stylesheet" href="{{ asset('css/auth/verify-code.css') }}" />
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
@@ -31,17 +24,17 @@
       <div class="max-w-9xl mx-auto px-4">
         <div class="flex justify-between items-center py-1">
           <div>
-            <img src="{{asset('images\verify-code\logo1.png')}}" alt="logo" class="h-[60px] w-full" />
+            <img src="{{ asset('images/verify-code/logo1.png') }}" alt="logo" class="h-[60px] w-full" />
           </div>
           <div class="hidden md:flex">
             <ul class="text-xl text-[#11477B] flex gap-5 items-center font-medium inter-medium">
-              <li><a href="../hommme/home.html" class="hover:text-[#349BDB]">Home</a></li>
-              <li><a href="../login/login.html" class="hover:text-[#349BDB]">Services</a></li>
-              <li><a href="../contactus 2/contact.html" class="hover:text-[#349BDB]">Contact Us</a></li>
-              <li><a href="../about 2/about.html" class="hover:text-[#349BDB]">About</a></li>
+              <li><a href="{{ route('home') }}" class="hover:text-[#349BDB]">Home</a></li>
+              <li><a href="{{ route('services') }}" class="hover:text-[#349BDB]">Services</a></li>
+              <li><a href="{{ route('contact') }}" class="hover:text-[#349BDB]">Contact Us</a></li>
+              <li><a href="{{ route('about') }}" class="hover:text-[#349BDB]">About</a></li>
               <li>
                 <a
-                href="../signup/signup.html"
+                href="{{ route('register') }}"
                 class="block bg-[#349BDB] rounded-full py-2 px-5  text-white hover:bg-[#11477B]"
                 >Sign up</a
               >
@@ -72,13 +65,13 @@
         </div>
         <div id="menu" class="hidden md:hidden">
           <ul class="text-xl text-[#11477B] flex flex-col gap-3 pb-4 font-medium inter-medium">
-            <li><a href="../hommme/home.html" class="block hover:text-[#349BDB]">Home</a></li>
-            <li><a href="../login/login.html" class="block hover:text-[#349BDB]">Services</a></li>
-            <li><a href="../contactus 2/contact.html" class="hover:text-[#349BDB]">Contact Us</a></li>
-            <li><a href="../about 2/about.html" class="block hover:text-[#349BDB]">About</a></li>
+            <li><a href="{{ route('home') }}" class="block hover:text-[#349BDB]">Home</a></li>
+            <li><a href="{{ route('services') }}" class="block hover:text-[#349BDB]">Services</a></li>
+            <li><a href="{{ route('contact') }}" class="hover:text-[#349BDB]">Contact Us</a></li>
+            <li><a href="{{ route('about') }}" class="block hover:text-[#349BDB]">About</a></li>
             <li>
               <a
-              href="../signup/signup.html"
+              href="{{ route('register') }}"
               class="block bg-[#349BDB] rounded-full py-2 px-5  text-white hover:bg-[#11477B]"
               >Sign up</a
               >
@@ -105,30 +98,45 @@
                     </p>
                     </div>
 
+                    {{-- @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div> --}}
+                    {{-- @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif --}}
+
                     <!-- Form -->
-                    <form action="#" class="mb-6 anim" id="forgetpass2-form">
-                    <label
-                        for="number"
+                    <form action="{{ route('verify.code.post') }}" method="POST" class="mb-6 anim" id="forgetpass2-form">
+                        @csrf
+                        <label
+                        for="code"
                         class="block text-sm font-bold text-[#11477b] mb-2"
                         >The code</label
                     >
                     <input
-                        type="code"
-                        id="number"
-                        name="The code"
+                        type="text"
+                        id="code"
+                        name="code"
                         required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#349BDB]"
-                    /> 
-                
+                    />
+                    @error('code')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror 
+                   
                     </form>
-                    <button
+
+                   <button
                     type="submit"
                     form="forgetpass2-form"
                     class="btn anim text-center rounded-2xl"
                     >
                     Submit
                     </button>
-
                 
                    
 
@@ -154,20 +162,20 @@
                 <div class="lg:w-3/4 flex justify-center anim mr-8">
                     <img
                     class="w-full max-w-md lg:max-w-lg"
-                    src="{{asset('images\verify-code\forgetpass2.png')}}"
+                    src="{{ asset('images/verify-code/forgetpass2.png') }}"
                     alt="forgetpass2"
                     />
             </div>
 
             </div>
             <a
-                href="../login/login.html"
+                href="{{ route('login') }}"
                 class="btn1 block text1 hover:underline anim"
             >
                 < Back to Log In
             </a>
         </div>
     </div>
-    <script src="{{asset('js\auth\verify-code.js')}}"></script>
+    <script src="{{ asset('js/auth/verify-code.js') }}"></script>
   </body>
 </html>
