@@ -6,9 +6,12 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
 
 Route::get('/', fn() => view('home'))->name('home');
+
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store')->middleware('throttle:10,1');
+
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::middleware('auth')->group(function () {
@@ -21,3 +24,4 @@ Route::get('/before-interview', [ServicesController::class, 'beforeInterview'])-
 Route::get('/verification-code', [ServicesController::class, 'verificationCode'])->name('verification-code');
 
 require __DIR__.'/auth.php';
+require __DIR__.'/interview.php';

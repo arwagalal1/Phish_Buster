@@ -9,7 +9,7 @@ body {
     background-color: #ffff;
     padding-top: 4em;
     overflow: hidden;
-    background-image: url(images/Group.png);
+    background-image: url(public\images\login\Group.png);
 }
 
 #login {

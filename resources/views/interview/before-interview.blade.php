@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/before-interview.css') }}">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-  </style>
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       function toggleMenu() {
@@ -23,17 +23,17 @@
       <div class="max-w-9xl mx-auto px-4">
         <div class="flex justify-between items-center py-1">
           <div>
-            <img src="{{asset('images\interview\logo1.png')}}" alt="logo" class="h-[60px] w-full animate__animated animate__fadeInDown" />
+            <img src="{{ asset('images/interview/logo1.png') }}" alt="logo" class="h-[60px] w-full animate__animated animate__fadeInDown" />
           </div>
           <div class="hidden md:flex">
             <ul class="text-xl text-[#11477B] flex gap-5 items-center font-medium inter-medium">
-              <li><a href="../hommme 2/home 2.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Home</a></li>
-                  <li><a href="../services/services.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Services</a></li>
-                  <li><a href="../contactus/contact.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Contact Us</a></li>
-                  <li><a href="../about/about.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">About</a></li>
+              <li><a href="{{ route('home') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Home</a></li>
+                  <li><a href="{{ route('services') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Services</a></li>
+                  <li><a href="{{ route('contact') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Contact Us</a></li>
+                  <li><a href="{{ route('about') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">About</a></li>
                   <li>
                     <a
-                      href="../profile/profile.html"
+                      href="{{ route('profile') }}"
                       class="block bg-[#349BDB] rounded-full py-2 px-5 text-white hover:bg-[#11477B] animate__animated animate__fadeInDown"
                       >Profile</a
                     >
@@ -63,13 +63,13 @@
         </div>
         <div id="menu" class="hidden md:hidden">
           <ul class="text-xl text-[#11477B] flex flex-col gap-3 pb-4 font-medium inter-medium">
-            <li><a href="../hommme 2/home 2.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Home</a></li>
-                  <li><a href="../services/services.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Services</a></li>
-                  <li><a href="../contactus/contact.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Contact Us</a></li>
-                  <li><a href="../about/about.html" class="hover:text-[#3498db] animate__animated animate__fadeInDown">About</a></li>
+            <li><a href="{{ route('home') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Home</a></li>
+                  <li><a href="{{ route('services') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Services</a></li>
+                  <li><a href="{{ route('contact') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">Contact Us</a></li>
+                  <li><a href="{{ route('about') }}" class="hover:text-[#3498db] animate__animated animate__fadeInDown">About</a></li>
                   <li>
                     <a
-                      href="../profile/profile.html"
+                      href="{{ route('profile') }}"
                       class="block bg-[#349BDB] rounded-full py-2 px-5 text-white hover:bg-[#11477B] animate__animated animate__fadeInDown"
                       >Profile</a
                     >
@@ -84,7 +84,7 @@
       <div class="rounded-lg w-full max-w-6xl">
         <!-- العنوان والصورة -->
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-center md:text-left animate__animated animate__fadeInUp">
-          <img src="{{asset('images\interview\tips.png')}}" alt="bigfour" class="w-28 md:w-40 animate__animated animate__zoomIn" />
+          <img src="{{ asset('images/interview/tips.png') }}" alt="bigfour" class="w-28 md:w-40 animate__animated animate__zoomIn" />
           <h1 class="text-2xl md:text-4xl font-bold inter-bold text-[#11477B] text-center mt-6">
             Tips before you start<br/>the interview
           </h1>
@@ -95,10 +95,10 @@
           <!-- نصيحة 1 -->
           <div class="flex items-center space-x-4 md:space-x-0 md:space-y-6 animate__animated animate__fadeInUp">
             <div class="flex items-center justify-center bg-[#EBF5FB] rounded-full w-20 h-20 md:w-24 md:h-24">
-              <img src="{{asset('images\interview\1st.png')}}" alt="" class="w-14 h-14 md:w-20 md:h-20 animate__animated animate__zoomIn" />
+              <img src="{{ asset('images/interview/1st.png') }}" alt="" class="w-14 h-14 md:w-20 md:h-20 animate__animated animate__zoomIn" />
             </div>
             <div class="relative flex-1">
-              <img src="{{asset('images\interview\bg.png')}}" class="w-full h-24 md:h-28" />
+              <img src="{{ asset('images/interview/bg.png') }}" class="w-full h-24 md:h-28" />
               <p class="absolute top-1 left-4 text-[#3498DB] font-bold inter-bold text-sm md:text-xl p-4">
                 Listen Actively, Pay attention to the questions.
               </p>
@@ -108,10 +108,10 @@
           <!-- نصيحة 2 -->
           <div class="flex items-center space-x-4 md:space-x-0 md:space-y-6 animate__animated animate__fadeInUp">
             <div class="flex items-center justify-center bg-[#EBF5FB] rounded-full w-20 h-20 md:w-24 md:h-24">
-              <img src="{{asset('images\interview\2.png')}}" alt="" class="w-14 h-14 md:w-20 md:h-20 animate__animated animate__zoomIn" />
+              <img src="{{ asset('images/interview/2.png') }}" alt="" class="w-14 h-14 md:w-20 md:h-20 animate__animated animate__zoomIn" />
             </div>
             <div class="relative flex-1">
-              <img src="{{asset('images\interview\bg.png')}}" class="w-full h-24 md:h-28" />
+              <img src="{{ asset('images/interview/bg.png') }}" class="w-full h-24 md:h-28" />
               <p class="absolute top-1 left-4 text-[#3498DB] font-bold inter-bold text-sm md:text-xl p-4">
                 Each question has a specific time to answer it.
               </p>
@@ -121,10 +121,10 @@
           <!-- نصيحة 3 -->
           <div class="flex items-center space-x-4 md:space-x-0 md:space-y-6 animate__animated animate__fadeInUp">
             <div class="flex items-center justify-center bg-[#EBF5FB] rounded-full w-20 h-20 md:w-24 md:h-24">
-              <img src="{{asset('images\interview\3.png')}}" alt="" class="w-14 h-14 md:w-20 md:h-20 animate__animated animate__zoomIn" />
+              <img src="{{ asset('images/interview/3.png') }}" alt="" class="w-14 h-14 md:w-20 md:h-20 animate__animated animate__zoomIn" />
             </div>
             <div class="relative flex-1">
-              <img src="{{asset('images\interview\bg.png')}}" class="w-full h-24 md:h-28" />
+              <img src="{{ asset('images/interview/bg.png') }}" class="w-full h-24 md:h-28" />
               <p class="absolute top-0 left-4 text-[#3498DB] font-bold inter-bold text-sm md:text-xl p-4">
                 Be Clear and Concise. Avoid rambling keep your answers relevant and to the point.
               </p>
@@ -134,10 +134,10 @@
           <!-- نصيحة 4 -->
           <div class="flex items-center space-x-4 md:space-x-0 md:space-y-6 animate__animated animate__fadeInUp">
             <div class="flex items-center justify-center bg-[#EBF5FB] rounded-full w-20 h-20 md:w-24 md:h-24">
-              <img src="{{asset('images\interview\4.png')}}" alt="" class="w-12 h-12 md:w-20 md:h-20 animate__animated animate__zoomIn" />
+              <img src="{{ asset('images/interview/4.png') }}" alt="" class="w-12 h-12 md:w-20 md:h-20 animate__animated animate__zoomIn" />
             </div>
             <div class="relative flex-1">
-              <img src="{{asset('images\interview\bg.png')}}" class="w-full h-24 md:h-28" />
+              <img src="{{ asset('images/interview/bg.png') }}" class="w-full h-24 md:h-28" />
               <p class="absolute top-2 left-4 text-[#3498DB] font-bold inter-bold text-sm md:text-xl p-4">
                 The interview is recorded to be analyzed.
               </p>
@@ -147,7 +147,7 @@
 
         <!-- زر البدء -->
         <div class="text-center mt-12 animate__animated animate__fadeInUp">
-          <a href="../new/desk.html" class="text-[#3498DB] font-light inter-light text-[26px] w-full md:w-[337px] border border-[#3498DB] px-20 py-1 rounded-3xl focus:outline-none focus:shadow-outline hover:bg-[#11477b] hover:text-white transition-all duration-300">
+          <a href="{{ route('pathways') }}" class="text-[#3498DB] font-light inter-light text-[26px] w-full md:w-[337px] border border-[#3498DB] px-20 py-1 rounded-3xl focus:outline-none focus:shadow-outline hover:bg-[#11477b] hover:text-white transition-all duration-300">
             Start Now
           </a>
         </div>

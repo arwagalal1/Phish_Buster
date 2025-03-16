@@ -73,12 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // تفعيل زر "Submit"
     const submitButton = document.querySelector('#submit-button');
     submitButton.addEventListener('click', () => {
-      let targetUrl = '../new/interview.html'; // صفحة المقابلة العامة
+      let targetUrl = interviewRoute; // Use the route passed from Blade
+      //change in backend to make route on laravel
       if (selectedPath) {
         if (selectedPath === 'pen-test' && !selectedSubPath) {
           alert('Please select a sub-path for Penetration Testing.');
           return;
         }
+        // Append query parameters
         targetUrl += `?path=${selectedPath}`;
         if (selectedPath === 'pen-test' && selectedSubPath) {
           targetUrl += `&subPath=${selectedSubPath}`;
@@ -93,4 +95,3 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error('Error:', error);
   }
 });
-
