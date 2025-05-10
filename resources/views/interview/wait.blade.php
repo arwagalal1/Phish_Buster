@@ -66,20 +66,24 @@
         <div class="flex flex-col justify-around items-center mt-44 sm:mt-16">
           <!-- Image -->
           <div>
-            <img class="anim p-4 w-24 h-24 sm:w-32 sm:h-32 animate__animated animate__rotateIn" src="{{ asset('images/interview/Sand Timer.png') }}" alt="error" />
+            <img class="anim p-4 w-24 h-24 sm:w-32 sm:h-32 animate__animated animate__rotateIn" src="{{ asset('images\interview\Sand Timer.png') }}"
+              alt="error" />
           </div>
-
+      
           <!-- Heading -->
           <div class="mt-3">
-            <h1 class="anim text-5xl sm:text-5xl lg:text-6xl text-[#11477B] font-bold inter-bold text-center animate__animated animate__fadeInUp">
-              please wait for our response 
+            <h1
+              class="anim text-5xl sm:text-5xl lg:text-6xl text-[#11477B] font-bold inter-bold text-center animate__animated animate__fadeInUp">
+              please wait for our response
             </h1>
           </div>
-
+      
           <!-- Subheading -->
           <div class="mt-3">
-            <h2 class="anim text-2xl sm:text-3xl lg:text-4xl text-[#3498db] font-light inter-light text-center animate__animated animate__fadeInUp">
-              we will send you an activation code<br class="hidden sm:block" />after Evaluating your result in your<br class="hidden sm:block" />mail box for the next step
+            <h2
+              class="anim text-2xl sm:text-3xl lg:text-4xl text-[#3498db] font-light inter-light text-center animate__animated animate__fadeInUp">
+              we will send you an activation code<br class="hidden sm:block" />after Evaluating your result in your<br
+                class="hidden sm:block" />mail box for the next step
             </h2>
           </div>
         </div>

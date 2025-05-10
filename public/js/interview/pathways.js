@@ -1,97 +1,61 @@
-// Description: JavaScript file for the desk page.
 document.addEventListener('DOMContentLoaded', function () {
-  try {
-    const penTest = document.getElementById("pen-test");
-    const subOptions = document.getElementById("sub-options");
-    const redTeaming = document.getElementById("redTeaming");
-    const soc = document.getElementById("soc");
-    const malwareAnalysis = document.getElementById("malware-analysis");
+  let selectedPath = null;
+  let selectedSubPath = null;
 
-    let selectedPath = '';
-    let selectedSubPath = '';
+  // Select path elements
+  const paths = document.querySelectorAll('#soc, #malware-analysis, #pen-test, #redTeaming');
+  const subOptionsContainer = document.getElementById('sub-options');
+  const submitButton = document.getElementById('submit-button');
 
-    function clearSelection() {
-      soc.classList.remove('selected');
-      malwareAnalysis.classList.remove('selected');
-      penTest.classList.remove('selected');
-      redTeaming.classList.remove('selected');
-      subOptionButtons.forEach(button => {
-        button.classList.remove('selected');
-      });
+  paths.forEach(path => {
+    path.addEventListener('click', function () {
+      paths.forEach(p => p.classList.remove('selected'));
+      this.classList.add('selected');
+      selectedPath = this.id;
+
+      if (selectedPath === 'pen-test') {
+        subOptionsContainer.classList.remove('hidden');
+      } else {
+        subOptionsContainer.classList.add('hidden');
+        selectedSubPath = null;
+      }
+    });
+  });
+
+  // Select sub-path for pen-test
+  const subOptions = subOptionsContainer.querySelectorAll('button');
+  subOptions.forEach(option => {
+    option.addEventListener('click', function () {
+      subOptions.forEach(o => o.classList.remove('selected')); // Reverted to use 'selected' class
+      this.classList.add('selected'); // Reverted to use 'selected' class
+      selectedSubPath = this.textContent.trim();
+    });
+  });
+
+  // Submit button
+  submitButton.addEventListener('click', function () {
+    if (!selectedPath) {
+      alert('Please select a path.');
+      return;
     }
 
-    penTest.addEventListener("click", () => {
-      clearSelection();
-      penTest.classList.add('selected');
-      subOptions.classList.toggle("hidden");
-      redTeaming.classList.toggle("md:mt-0");
-      redTeaming.classList.toggle("mt-28");
-      selectedPath = 'pen-test';
-    });
+    if (selectedPath === 'pen-test' && !selectedSubPath) {
+      alert('Please select a sub-path for Penetration Testing.');
+      return;
+    }
 
-    soc.addEventListener("click", () => {
-      clearSelection();
-      soc.classList.add('selected');
-      selectedPath = 'soc';
-      selectedSubPath = '';
-    });
+    const subPathMapping = {
+      'Web Application': 'web',
+      'Mobile Application': 'mobile',
+      'Network': 'network',
+    };
 
-    malwareAnalysis.addEventListener("click", () => {
-      clearSelection();
-      malwareAnalysis.classList.add('selected');
-      selectedPath = 'malware-analysis';
-      selectedSubPath = '';
-    });
+    const queryParams = new URLSearchParams();
+    queryParams.append('path', selectedPath);
+    if (selectedSubPath) {
+      queryParams.append('subPath', subPathMapping[selectedSubPath]);
+    }
 
-    redTeaming.addEventListener("click", () => {
-      clearSelection();
-      redTeaming.classList.add('selected');
-      selectedPath = 'redTeaming';
-      selectedSubPath = '';
-    });
-
-    // إضافة مستمع للأحداث لكل خيار فرعي في "Penetration Testing"
-    const subOptionButtons = subOptions.querySelectorAll('button');
-    subOptionButtons.forEach(button => {
-      button.addEventListener('click', (event) => {
-        event.stopPropagation(); // منع الحدث من الانتشار للنقر خارج القائمة
-        subOptionButtons.forEach(btn => btn.classList.remove('selected'));
-        button.classList.add('selected');
-        selectedSubPath = button.textContent.trim().toLowerCase().replace(' ', '-');
-      });
-    });
-
-    // Close sub-options when clicking outside, but keep the selected sub-option visible
-    document.addEventListener("click", (event) => {
-      if (!penTest.contains(event.target) && !subOptions.contains(event.target)) {
-        subOptions.classList.add("hidden");
-      } else {
-        subOptions.classList.remove("hidden");
-      }
-    });
-
-    // تفعيل زر "Submit"
-    const submitButton = document.querySelector('#submit-button');
-    submitButton.addEventListener('click', () => {
-      let targetUrl = interviewRoute; // Use the route passed from Blade
-      //change in backend to make route on laravel
-      if (selectedPath) {
-        if (selectedPath === 'pen-test' && !selectedSubPath) {
-          alert('Please select a sub-path for Penetration Testing.');
-          return;
-        }
-        // Append query parameters
-        targetUrl += `?path=${selectedPath}`;
-        if (selectedPath === 'pen-test' && selectedSubPath) {
-          targetUrl += `&subPath=${selectedSubPath}`;
-        }
-      } else {
-        alert('Please select a path.');
-        return;
-      }
-      window.location.href = targetUrl;
-    });
-  } catch (error) {
-    console.error('Error:', error);
-  }
+    window.location.href = `/api/questions?${queryParams.toString()}`;
+  });
 });

@@ -55,6 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sessions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Session::class);
+        throw new \RuntimeException('The sessions relationship is not applicable when using file-based session storage.');
+    }
+
+    public function answers()
+    {
+         return $this->hasMany(Answer::class);
     }
 }
